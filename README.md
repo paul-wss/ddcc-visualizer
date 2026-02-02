@@ -102,7 +102,7 @@ ddcc-visualizer/
 
 ```bash
 # Start the server
-npm start
+http-server
 
 # Then open in your browser:
 # http://localhost:8080
