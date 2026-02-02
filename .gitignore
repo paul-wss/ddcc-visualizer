@@ -1,1 +1,35 @@
-/node_modules/
+# Dependencies
+node_modules/
+
+# Log files
+*.log
+npm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*.rej

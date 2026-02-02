@@ -1,14 +1,22 @@
 {
-  "name": "visualizationappforddcc",
+  "name": "ddcc-visualizer",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Interactive visualization tool for Disk-based Covering Calculations with Farthest-Point Voronoi Diagrams",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
+    "start": "http-server -p 8080 -c-1",
+    "serve": "http-server -p 8080 -c-1 -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "visualization",
+    "voronoi",
+    "computational-geometry",
+    "d3js"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "d3": "^7.9.0"
   },

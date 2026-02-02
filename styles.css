@@ -1,9 +1,12 @@
-/* styles.css */
+/* base styles */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+/* header and navigation */
 
 header {
   background-color: #333;
@@ -11,61 +14,81 @@ header {
   padding: 10px;
 }
 
-header nav button {
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+header nav button,
+header nav select {
   background-color: #555;
   border: none;
   color: white;
   padding: 10px;
   cursor: pointer;
-  margin-right: 5px;
+  border-radius: 3px;
 }
 
-header nav button:hover {
+header nav button:hover,
+header nav select:hover {
   background-color: #777;
 }
 
+/* main layout */
+
 main {
-  display: flex; /* Flexbox für horizontale Anordnung */
+  display: flex;
   flex-direction: column;
-  height: calc(100vh - 50px); /* 100% der Höhe minus die Höhe des Headers */
-  width: 100%; /* Nimmt die gesamte verfügbare Breite ein */
+  height: calc(100vh - 50px);
+  width: 100%;
   box-sizing: border-box;
 }
 
 #container {
-  display: flex; /* Flexbox für horizontale Anordnung */
-  width: 100%; /* Nimmt die gesamte verfügbare Breite des main Containers ein */
-  height: 100%; /* Nimmt die gesamte Höhe des main Containers ein */
+  display: flex;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 }
+
+/* visualization panel */
 
 #visualization {
-  width: 50%; /* Nimmt 50% der Breite des Containers ein */
-  height: 100%; /* Nimmt 100% der Höhe des Containers ein */
+  width: 50%;
+  height: 100%;
   border: 1px solid #ccc;
   padding: 10px;
   box-sizing: border-box;
   overflow: auto;
 }
+
+/* group hierarchy panel */
 
 #groupHierarchy {
-  width: 50%; /* Nimmt ebenfalls 50% der Breite des Containers ein */
-  height: 100%; /* Nimmt 100% der Höhe des Containers ein */
+  width: 50%;
+  height: 100%;
   border: 1px solid #ccc;
   padding: 10px;
   box-sizing: border-box;
   overflow: auto;
 }
 
+#groupHierarchy h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* dropdown menu */
 
 .dropdown {
   position: relative;
   display: inline-block;
-  margin: 5px; /* Etwas Abstand zwischen den Elementen */
 }
 
 .dropdown-button {
-  background-color: #555; /* Gleiche Farbe wie die Buttons im Header */
+  background-color: #555;
   color: white;
   padding: 10px;
   border: none;
@@ -74,33 +97,46 @@ main {
 }
 
 .dropdown-button:hover {
-  background-color: #777; /* Hover-Farbe wie im Header */
+  background-color: #777;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333; /* Dunkler Hintergrund passend zum Header */
+  background-color: #333;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   padding: 10px;
   z-index: 1;
   min-width: 200px;
-  border: 1px solid #555; /* Umrandung in einer ähnlichen Farbe */
+  border: 1px solid #555;
   border-radius: 5px;
 }
 
 .dropdown-content label {
   display: block;
   margin-bottom: 5px;
-  color: white; /* Weißer Text für besseren Kontrast */
+  color: white;
   cursor: pointer;
   font-size: 14px;
 }
 
 .dropdown-content label input[type="checkbox"] {
-  margin-right: 5px; /* Abstand zwischen Checkbox und Text */
+  margin-right: 5px;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* coordinate display */
+
+#coordinateDisplay {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
 }
