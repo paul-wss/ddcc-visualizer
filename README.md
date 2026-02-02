@@ -1,107 +1,115 @@
 # DDCC Visualizer
+An interactive tool for visualizing disk-based covering calculations using Farthest-Point Voronoi Diagrams (FPVD).
 
-Ein interaktives Visualisierungstool für Disk-based Covering Calculations mit Farthest-Point Voronoi Diagrammen.
+Originally built between September 2024 and February 2025. Open-sourced in 2026.
+
+---
+
+## Project Summary
+
+This project implements and visualizes advanced computational geometry algorithms for disk covering and collision detection. The tool supports group-based point management, convex hull computation, disk generation from hull points, and tree-based collision/proximity analysis. The implementation focuses on clarity, modularity, and interactive exploration of geometric structures.
+
+---
+
+![Example Screenshot](assets/example_screenshot.png)
 
 ## Features
 
-- **Punktgruppen-Verwaltung**: Erstellen, bearbeiten und löschen von Punktgruppen
-- **Convex Hull Berechnung**: Automatische Berechnung mit Graham-Scan-Algorithmus
-- **Farthest-Point Voronoi Diagramm (FPVD)**: Visualisierung der Voronoi-Struktur
-- **Disk-Erstellung**: Disks aus 2-3 ausgewählten Hull-Punkten generieren
-- **Kollisionserkennung**: Automatische Erkennung und Visualisierung von Disk-Kollisionen
-- **Baum-Hierarchie**: Anzeige von Kollisions- und Proximity-Bäumen
-- **Import/Export**: JSON-basiertes Speichern und Laden von Konfigurationen
+- **Point Group Management**: Create, edit, and delete point groups
+- **Convex Hull Calculation**: Automatic computation using the Graham Scan algorithm
+- **Farthest-Point Voronoi Diagram (FPVD)**: Visualization of the Voronoi structure
+- **Disk Generation**: Create disks from 2-3 selected hull points
+- **Collision Detection**: Automatic detection and visualization of disk collisions
+- **Tree Hierarchy**: Display of collision and proximity trees
+- **Import/Export**: JSON-based saving and loading of configurations
 
-## Installation
+---
 
-```bash
-# Repository klonen
-git clone <repository-url>
-cd ddcc-visualizer
-
-# Dependencies installieren
-npm install
-
-# Entwicklungsserver starten
-npm start
-```
-
-## Projektstruktur
+## Architecture Overview
 
 ```
 ddcc-visualizer/
 ├── src/
-│   ├── core/                 # Kern-Logik
-│   │   ├── GeometryUtils.js  # Geometrische Berechnungen
-│   │   ├── PointGroup.js     # Punktgruppen-Klasse
-│   │   ├── constants.js      # Konstanten und Konfiguration
-│   │   └── state.js          # Anwendungszustand
+│   ├── core/                 # Core logic
+│   │   ├── GeometryUtils.js  # Geometric algorithms
+│   │   ├── PointGroup.js     # Point group class
+│   │   ├── constants.js      # Constants and configuration
+│   │   └── state.js          # Application state
 │   │
-│   ├── ui/                   # UI-Komponenten
-│   │   ├── visualization.js  # SVG-Visualisierung
-│   │   ├── treeVisualization.js  # Baum-Hierarchie
-│   │   ├── interactions.js   # Benutzerinteraktionen
-│   │   └── uiControls.js     # UI-Steuerung
+│   ├── ui/                   # UI components
+│   │   ├── visualization.js  # SVG rendering
+│   │   ├── treeVisualization.js  # Tree hierarchy
+│   │   ├── interactions.js   # User interactions
+│   │   └── uiControls.js     # UI controls
 │   │
-│   ├── utils/                # Hilfsfunktionen
-│   │   └── testDataGenerator.js  # Testdaten-Generierung
+│   ├── utils/                # Utility functions
+│   │   └── testDataGenerator.js  # Test data generation
 │   │
-│   ├── app.js                # Hauptanwendung
-│   └── index.js              # Modul-Exports
+│   ├── app.js                # Main application
+│   └── index.js              # Module exports
 │
 ├── assets/
-│   └── icons/                # Icons und Favicons
+│   └── icons/                # Icons and favicons
 │
 ├── data/
-│   └── examples/             # Beispiel-JSON-Dateien
+│   └── examples/             # Example JSON files
 │
-├── index.html                # HTML-Einstiegspunkt
+├── index.html                # HTML entry point
 ├── styles.css                # Stylesheets
-├── package.json              # NPM-Konfiguration
-└── README.md                 # Diese Datei
+├── package.json              # NPM configuration
+└── README.md                 # This file
 ```
 
-## Verwendung
+---
 
-### Interaktionsmodi
+## Usage
 
-1. **Locked**: Keine Interaktion möglich
-2. **Add Points**: Punkte zur ausgewählten Gruppe hinzufügen
-3. **Delete Points**: Punkte aus der Gruppe löschen
-4. **Move Points**: Punkte per Drag & Drop verschieben
-5. **Select Hull Points**: Hull-Punkte für Disk-Erstellung auswählen
-6. **Resize Disks via FPVD**: Disks entlang des FPVD anpassen
-7. **Resize Disks Manually**: Disk-Größe manuell ändern
+### Interaction Modes
 
-### Workflow
+1. **Locked**: No interaction possible
+2. **Add Points**: Add points to the selected group
+3. **Delete Points**: Remove points from the group
+4. **Move Points**: Move points via drag & drop
+5. **Select Hull Points**: Select hull points for disk creation
+6. **Resize Disks via FPVD**: Adjust disks along the FPVD
+7. **Resize Disks Manually**: Change disk size manually
 
-1. Gruppe erstellen ("Create new group")
-2. Modus "Add points" auswählen und Punkte hinzufügen
-3. Modus "Select hull points for disk" auswählen
-4. 2-3 Hull-Punkte auswählen
-5. "Generate Disk from selected hull points" klicken
+### Typical Workflow
 
-### Daten speichern/laden
+1. Create a group ("Create new group")
+2. Select "Add points" mode and add points
+3. Select "Select hull points for disk" mode
+4. Select 2-3 hull points
+5. Click "Generate Disk from selected hull points"
+6. Resize, remove collisions etc.
 
-- **Save file**: Exportiert alle Gruppen als JSON
-- **Load file**: Importiert zuvor gespeicherte JSON-Dateien
+### Data Import/Export
 
-## Technologien
+- **Save file**: Export all groups as JSON
+- **Load file**: Import previously saved JSON files
 
-- **D3.js v7**: SVG-Visualisierung
-- **Vanilla JavaScript (ES6 Modules)**: Keine Framework-Abhängigkeiten
-- **CSS3**: Modernes Styling
+---
 
-## Entwicklung
+## Technologies
+
+- **D3.js v7**: SVG visualization
+- **Vanilla JavaScript (ES6 Modules)**: No framework dependencies
+- **CSS3**: Modern styling
+
+---
+
+## Development
 
 ```bash
-# Server starten
+# Start the server
 npm start
 
-# Dann im Browser öffnen:
+# Then open in your browser:
 # http://localhost:8080
 ```
 
-## Lizenz
+---
+
+## License
 
 ISC
