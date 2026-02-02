@@ -1,0 +1,30 @@
+{
+  "pointGroups": [
+    {
+      "points": [
+        { "x": 30, "y": 30 },
+        { "x": 70, "y": 30 },
+        { "x": 50, "y": 70 },
+        { "x": 80, "y": 90 },
+        { "x": 20, "y": 90 }
+      ],
+      "disk": {
+        "center": { "x": 50, "y": 50 },
+        "radius": 40
+      },
+      "farthestPointVoronoiDiagram": {
+        "vertices": [
+          { "x": 30, "y": 30 },
+          { "x": 70, "y": 30 },
+          { "x": 50, "y": 70 },
+          { "x": 80, "y": 90 }
+        ],
+        "edges": [
+          { "start": 0, "end": 1 },
+          { "start": 1, "end": 2 },
+          { "start": 2, "end": 3 }
+        ]
+      }
+    }
+  ]
+}
